@@ -31,3 +31,12 @@ section.house {
 
     min-height:100vh;
 }
+
+section.house svg g#scene {
+    opacity:1;
+    transition: opacity 0.25s;
+}
+
+section.house svg:hover g#scene {
+    opacity: 0.25;
+}
