@@ -40,3 +40,9 @@ section.house svg g#scene {
 section.house svg:hover g#scene {
     opacity: 0.25;
 }
+
+div.label {
+    background-color:#ffffff;
+    color:#140e3c;
+    padding: 8px 16px 8px 16px;
+}

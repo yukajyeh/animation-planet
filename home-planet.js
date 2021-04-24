@@ -58,3 +58,18 @@ tvTimeline
     .to(tvLight, { opacity: o })
     .to(tvLight, { opacity:1, duration:0.4, delay: 0.5 })
     .to(tvLight, { opacity: o })
+
+
+const label = document.querySelector("div.label")
+const links = document.querySelectorAll('svg a')
+
+links.forEach(link => {
+
+    link.addEventListener("mouseenter", function(){
+        label.innerHTML = link.getAttribute("data-label")
+    })
+
+    link.addEventListener("mouseleave", function() {
+        label.innerHTML = "Label"
+    })
+})
