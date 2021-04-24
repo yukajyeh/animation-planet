@@ -45,4 +45,15 @@ div.label {
     background-color:#ffffff;
     color:#140e3c;
     padding: 8px 16px 8px 16px;
+
+    position:fixed;
+    top:45px;
+    left: 300px;
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+div.label.is-visible {
+    opacity:1;
 }
