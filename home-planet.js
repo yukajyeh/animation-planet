@@ -1,3 +1,25 @@
+const storyTimeline = gsap.timeline()
+
+storyTimeline
+    .set("section.house", { opacity: 0 })
+    .set("header", { opacity: 0 })
+    .to("header", {opacity: 0 })
+    .to("header", { opacity: 0 , delay: 3 })
+    .to("section.house", { opacity: 0 })
+
+const header = document.querySelector("header")
+
+const parallaxTimeline = gsap.timeline()
+
+parallaxTimeline
+    .set("section.scene img", { 
+        x: (index) => {
+            return (index * 100 + 300 ) + "vh"
+        }
+    })
+    .to("section.scene img", { x: "0vh" , duration: 10, ease: "linear" })
+
+
 const eyesTimeline = gsap.timeline({
     repeat : -1
 })
@@ -68,11 +90,16 @@ links.forEach(link => {
     link.addEventListener("mouseenter", function(){
         label.classList.add("is-visible")
         label.innerHTML = link.getAttribute("data-label")
+
+        gsap.to(links, { opacity: 0.25 })
+        gsap.to(link, { opacity: 1 })
     })
 
     link.addEventListener("mouseleave", function() {
         label.classList.remove("is-visible")
         label.innerHTML = "Label"
+
+        gsap.to(links, { opacity: 1 })
     })
 })
 
