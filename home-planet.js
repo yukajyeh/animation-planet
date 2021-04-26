@@ -3,21 +3,27 @@ const storyTimeline = gsap.timeline()
 storyTimeline
     .set("section.house", { opacity: 0 })
     .set("header", { opacity: 0 })
-    .to("header", {opacity: 0 })
-    .to("header", { opacity: 0 , delay: 3 })
-    .to("section.house", { opacity: 0 })
-
-const header = document.querySelector("header")
-
-const parallaxTimeline = gsap.timeline()
-
-parallaxTimeline
+    .set("section.scene", { opacity: 0 })
     .set("section.scene img", { 
         x: (index) => {
             return (index * 100 + 300 ) + "vh"
         }
     })
-    .to("section.scene img", { x: "0vh" , duration: 10, ease: "linear" })
+    .to("header", {opacity: 1 })
+    .to("header", { opacity: 0 , delay: 3 })
+    .addLabel("startScene")
+    .set("section.scene", { opacity: 1 }, "startScene")
+    .to("section.scene img", { x: "0vh" , duration: 10, ease: "linear" }, "startScene")
+    .addLabel("endScene")
+    .set("section.scene", { opacity: 0 }, "endScene")
+    .to("section.house", { opacity: 1 }, "endScene")
+
+const header = document.querySelector("header")
+
+
+
+
+   
 
 
 const eyesTimeline = gsap.timeline({

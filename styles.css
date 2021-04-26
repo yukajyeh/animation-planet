@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap');
 
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 body {
     font-family: 'IBM Plex Mono', monospace;
     color:#ffffff;
     background-color:#140e3c;
+}
+
+main {
+    animation: fadein 1s 1s both;
 }
 
 header, section {
