@@ -1,15 +1,17 @@
 const storyTimeline = gsap.timeline()
 
-storyTimeline
-    .set("section.house", { opacity: 0 })
-    .set("header", { opacity: 0 })
-    .set("section.scene", { opacity: 0 })
-    .set("section.scene img", { 
+
+gsap.set("section.house", { opacity: 0 })
+
+gsap.set("section.scene", { opacity: 0 })
+gsap.set("section.scene img", { 
         x: (index) => {
             return (index * 100 + 300 ) + "vh"
         }
     })
-    .to("header", {opacity: 1 })
+
+    storyTimeline
+
     .to("header", { opacity: 0 , delay: 3 })
     .addLabel("startScene")
     .set("section.scene", { opacity: 1 }, "startScene")
@@ -17,6 +19,22 @@ storyTimeline
     .addLabel("endScene")
     .set("section.scene", { opacity: 0 }, "endScene")
     .to("section.house", { opacity: 1 }, "endScene")
+
+
+storyTimeline.pause()
+
+let update 
+
+window.addEventListener("scroll", function(){
+    const pixels = window.pageYOffset
+    const currentTime = pixels / 300 
+
+    cancelAnimationFrame(update)
+
+    update = requestAnimationFrame(function() {
+        storyTimeline.seek(currentTime) 
+    })
+})
 
 const header = document.querySelector("header")
 

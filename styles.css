@@ -9,6 +9,8 @@ body {
     font-family: 'IBM Plex Mono', monospace;
     color:#ffffff;
     background-color:#140e3c;
+    
+    height: 8000px;
 }
 
 main {
@@ -29,15 +31,15 @@ header {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+
+    
 }
 
 header svg {
     max-height : 300px;
+    padding: 32px;
 }
 
-section.scene {
-
-}
 
 section.scene img {
     position:fixed;
@@ -51,6 +53,7 @@ section.scene img {
 h1 {
     font-size:32px;
     margin: 32px 0 0 0 ;
+    text-align:center;
 }
 
 section.house {
@@ -60,6 +63,11 @@ section.house {
     justify-content: center;
 
     min-height:100vh;
+    
+}
+
+section.house svg {
+    padding: 32px;
 }
 
 section.house svg g#scene {
